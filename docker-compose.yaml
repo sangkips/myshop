@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  app:
+    image: sangkips/myshop:latest
+    working_dir: /usr/src/app
+    ports:
+      - 8000:8000
+    environment:
+      - ENV=local
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - myshop_net
+
+volumes:
+  myshop_app:
+
+networks:
+  myshop_net:
