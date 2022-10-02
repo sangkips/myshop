@@ -6,10 +6,25 @@ services:
     working_dir: /usr/src/app
     ports:
       - 8000:8000
+    depends_on:
+      - db
     environment:
       - ENV=local
     volumes:
       - .:/usr/src/app
+    networks:
+      - myshop_net
+
+   db:
+    image: postgres:14.5-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - myshop_pg:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=myshop
+      - POSTGRES_USER=myshop
+      - POSTGRES_DB=myshop
     networks:
       - myshop_net
 
