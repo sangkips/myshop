@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_superuser %}
+<a href="{% url 'create-product' %}">Add product</a>
+{% endif %}
+<h3>Products</h3>
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for product in products %}
+        <div class="col">
+            <div class="card" style="width: 15rem;">
+                <div class="card h-100">
+                    <img src="{{ product.image_url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name}}</h5>
+                        <p class="card-text">${{ product.price }}</p>
+                        {% if user.is_superuser %}
+                         <a href="{% url 'update-product' product.id %}" class="btn btn-primary">Edit</a>
+                         <a href="{% url 'delete-product' product.id %}" class="btn btn-primary">Delete</a>
+                        {% endif %}
+                        <a href="#" class="btn btn-primary">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

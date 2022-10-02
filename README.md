@@ -1,2 +1,2 @@
 # myshop
-Myshop is a django based ecommerce pltform
+Myshop is a django based ecommerce platform
