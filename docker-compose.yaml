@@ -15,18 +15,18 @@ services:
     networks:
       - myshop_net
 
-   db:
-    image: postgres:14.5-alpine
-    ports:
-      - 5432:5432
-    volumes:
-      - myshop_pg:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_PASSWORD=myshop
-      - POSTGRES_USER=myshop
-      - POSTGRES_DB=myshop
-    networks:
-      - myshop_net
+#  db:
+#    image: postgres:14.5-alpine
+#    ports:
+#      - 5432:5432
+ #   volumes:
+ #     - myshop_pg:/var/lib/postgresql/data
+ #   environment:
+  #    - POSTGRES_PASSWORD=myshop
+ #     - POSTGRES_USER=myshop
+ #     - POSTGRES_DB=myshop
+ #   networks:
+ #     - myshop_net
 
 volumes:
   myshop_app:
